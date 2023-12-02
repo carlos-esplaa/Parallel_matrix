@@ -1,3 +1,6 @@
+package operation;
+import Printer.*;
+
 public class MatrixMultiplier {
 
     public MatrixMultiplier(double[][] matrixA, double[][] matrixB) {
@@ -15,7 +18,7 @@ public class MatrixMultiplier {
             multiplyMatrices(matrixA, matrixB, result);
 
             System.out.println("Resultado de la multiplicación de matrices:");
-            MatrixUtils.printMatrix(result);
+            PrintMatrix.printMatrix(result);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,7 +38,7 @@ public class MatrixMultiplier {
             int startRowA = i * partitionSize;
             int endRowA = (i == threads.length - 1) ? numRowsA : (i + 1) * partitionSize;
 
-            double[][] subMatrixA = MatrixUtils.getSubMatrix(matrixA, startRowA, endRowA);
+            double[][] subMatrixA = GetMatrix.getSubMatrix(matrixA, startRowA, endRowA);
 
             threads[i] = new MatrixMultiplierThread(subMatrixA, matrixB, result, startRowA);
             threads[i].start();

@@ -1,3 +1,5 @@
+package operation;
+
 public class MatrixMultiplierThread extends Thread {
     private final double[][] matrixA;
     private final double[][] matrixB;
